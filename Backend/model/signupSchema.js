@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const signupSchema = mongoose.Schema({
     MailID:{type:String , required:true} ,
-    password:{type:String , required:true},
-    confirm_password:{type:String , required:true}
+    password:{type:String , required:true}
 
 })
 
