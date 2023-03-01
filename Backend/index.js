@@ -1,43 +1,60 @@
-const express = require('express')
-const app = express()
-const PORT = 7001
-const cors = require('cors')
-const bodyparser = require('body-parser');
+const express = require("express");
+const app = express();
+const propdetails =  require("./models/propertydetails");
+const conn =  require("./connection/conn");
+const bodyParser = require("body-parser");
+conn()
 
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
-
-const main = require('./connect')
-const signin = require('./model/signinSchema')
-const signup = require('./model/signupSchema')
-const details = require('./model/detailsSchema');
-
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: false }));
-
-
-
-main()
-app.get('/signin',(req,res)=>{
-    res.send('ok')
-})
-app.get('/signup',(req,res)=>{
-    res.send('ok')
-})
-
-
-app.get("/", async(req,res)=>{
+app.get("/propdetails" , async (req,res)=>{
     try{
-    
-            res.send("not found");
-        }
-    catch(e){
-        res.status(404).send({e});
+        const getdata =  await propdetails.find()
+        res.status(200).json({
+            status :"success",
+            getdata
+        })
+    }catch(e){
+        res.status(404).json({
+            status :"failed",
+           message : e.message
+        })
     }
-    
+})
+
+// search api 
+
+app.get("/propdetails/:id" , async (req,res)=>{
+    try{
+        const getdata =  await propdetails.find({_id:req.params.id})
+        res.status(200).json({
+            status :"success",
+            getdata
+        })
+    }catch(e){
+        res.status(404).json({
+            status :"failed",
+           message : e.message
+        })
+    }
+})
+
+
+
+app.post("/add" , async (req,res)=>{
+    try{
+        const data = await propdetails.create(req.body)
+        res.status(200).json({
+            status :"success",
+            data
+        })
+    }catch(e){
+        res.status(404).json({
+            status :"failed",
+           message : e.message
+        })
+    }
 })
 
 
@@ -45,7 +62,9 @@ app.get("/", async(req,res)=>{
 
 
 
+app.listen(3000,()=>{
+    console.log("server is up at 3000")
+});
 
 
 
-app.listen(PORT,()=>{console.log(`Server is up and running at ${PORT}`)});

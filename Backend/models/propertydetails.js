@@ -1,34 +1,28 @@
-const mongoose = require("mongoose");
-const detailsSchema = new mongoose.Schema({
+const mongoose =require("mongoose");
+const PropertySchema = new mongoose.Schema({
     property:{
         type:String,
         required:true
     },
-
     contact:{
         type:String,
         required:true
     },
-
     area:{
         type:String,
         required:true
     },
-
     views:{
         type:String,
-        required:true
     },
-
     daysleft:{
         type:String,
     },
-
     status:{
         type:String,
     }
-}) 
 
+})
+const propertyModel=mongoose.model("Propertydetails", PropertySchema);
 
-const details = mongoose.model("details" ,detailsSchema);
-module.exports = details;
+module.exports=propertyModel
