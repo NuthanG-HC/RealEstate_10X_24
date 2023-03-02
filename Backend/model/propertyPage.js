@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 
 const propertyPage = mongoose.Schema({
-   property:{type: Number ,required:true},
-   contact:{type: Number ,required:true},
-   area:{type: Number ,required:true},
-   views:{type: Number ,required:true},
-   daysLeft:{type: Number ,required:true},
+   
+   property:{type: String ,required:true},
+   contact:{type: String ,required:true},
+   area:{type: String ,required:true},
+   views:{type: String ,required:true},
+   daysLeft:{type: String ,required:true},
 })
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { HiOutlineHome,HiOutlineBell,HiOutlineArrowDown,HiOutlineArrowUp,HiOutlineEye,HiOutlineTag} from "react-icons/hi";
-
 const Sidebar=()=>{
     return(
         <>

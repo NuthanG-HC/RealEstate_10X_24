@@ -1,19 +1,55 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css'
-const Login =()=>{
-    
-    return(
+const Login = () => {
+    const navigate = useNavigate()
+    const [data, setData] = useState({ id: "", password: "" })
+    const [err, setErr] = useState("")
+    function loginFunc(e) {
+        e.preventDefault()
+        fetch(`http://localhost:7001/login`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        }).then((res) => {
+            return res.json();
+        })
+            .then((result) => {
+                console.log(result);
+                if (result.status === "Error") {
+                    setErr(result.message);
+                } else if (result.status === "Failed") {
+                    setErr(result.message);
+                } else {
+                    setErr("");
+                    const token = result.message.token;
+                    console.log(result.message.userdetails)
+                    console.log(result.message.token)
+                    JSON.stringify(localStorage.setItem("token", token));
+                    JSON.stringify(localStorage.setItem("user", JSON.stringify(result.message.userdetails)));
+
+                    navigate("/display");
+                }
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
+    return (
         <div className='box'>
-             <div id="rectangle1">
+            <div id="rectangle1">
                 <h2>Logo</h2>
-                <p id='title'>Enter your credentials to access your account</p>
-                <input type='text' placeholder='User ID' name='id'  required/><br/>
-                <input type='password' placeholder='Password'   /><br/>
-                <button >Sign In</button><br/>
+                <form onSubmit={loginFunc}>
+                    <p id='title'>Enter your credentials to access your account</p>
+                    <input type='text' placeholder='Mail ID'  value={data.id} onChange={(e) => { setData({ ...data, id: e.target.value }) }} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required /><br />
+                    <input type='password' placeholder='Password' name='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} minLength={6} required /><br />
+                    <button type='submit' id="btn1">Sign In</button><br />
+                </form>
                 <Link to="/register" >Sign Up</Link>
-             </div>
-             <p id="sub-head1">Don't have an account?<Link to="/register" >Sign Up</Link></p>
+                <p style={{ color: "red" }}>{err} </p>
+            </div>
+            <p id="sub-head1">Don't have an account?<Link to="/register" >Sign Up</Link></p>
         </div>
     )
 }

@@ -16,6 +16,7 @@
     margin-top: 100px;
     background-color: #FFFFFF;
     border-radius: 10px;
+    padding-top: 25px;
 }
 #sub-head{
     position: absolute;
@@ -31,12 +32,13 @@ input{
     margin: 15px;
     border-radius: 5px;
 }
-button{
-    width: 86%;
+#btn1{
+    width: 82%;
     background-color: #4C57B6;
     padding: 10px;
     margin: 10px;
-    border-radius: 5px;
+    margin-left: 35px;
+    border-radius: 8px;
     color: #FFFFFF;
 }
 Link{
