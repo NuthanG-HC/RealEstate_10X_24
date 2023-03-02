@@ -25,20 +25,20 @@ app.get("/propdetails" , async (req,res)=>{
 
 // search api 
 
-app.get("/propdetails/:id" , async (req,res)=>{
-    try{
-        const getdata =  await propdetails.find({_id:req.params.id})
-        res.status(200).json({
-            status :"success",
-            getdata
-        })
-    }catch(e){
-        res.status(404).json({
-            status :"failed",
-           message : e.message
-        })
-    }
-})
+// app.get("/propdetails/:id , async (req,res)=>{
+//     try{
+//         const getdata =  await propdetails.find({ppid});
+//         res.status(200).json({
+//             status :"success",
+//             getdata
+//         })
+//     }catch(e){
+//         res.status(404).json({
+//             status :"failed",
+//            message : e.message
+//         })
+//     }
+// })
 
 
 

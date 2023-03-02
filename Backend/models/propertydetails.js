@@ -1,5 +1,9 @@
 const mongoose =require("mongoose");
 const PropertySchema = new mongoose.Schema({
+    ppid:{
+        type:String,
+        required:true
+    },
     property:{
         type:String,
         required:true

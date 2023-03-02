@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+body {
+  background: #afeee1;
+  /* overflow:hidden; */
+}
+.home {
+  display: flex;
+  max-width: 100vw;
+  height: 100vh;
+}
+
+/* SIDE NAVBAR START */
+.side-nav {
+  width: 18vw;
+  background-color: #afeee1;
+  display: flex;
+  flex-direction: column;
+}
+.side-nav h1 {
+  text-align: center;
+  color: #1a1b1c;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.side-nav p {
+  margin: 1rem 0;
+  margin-left: 46px;
+  display: flex;
+  align-items: center;
+  color: #aaaaaa;
+}
+.side-nav p span {
+  padding-right: 3rem;
+  /* padding-right: 1rem; */
+}
+.blue {
+  color: #2289ff;
+}
+
+/* SIDE NAVBAR END */
