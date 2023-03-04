@@ -5,6 +5,10 @@ const Login = () => {
     const navigate = useNavigate()
     const [data, setData] = useState({ id: "", password: "" })
     const [err, setErr] = useState("")
+    const token = localStorage.getItem('token')
+    if(token){
+        navigate('/home')
+    }
     function loginFunc(e) {
         e.preventDefault()
         fetch(`http://localhost:7001/login`, {
