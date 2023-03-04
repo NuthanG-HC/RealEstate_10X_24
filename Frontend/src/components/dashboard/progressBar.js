@@ -16,22 +16,22 @@ const ProgressBar = (props)=> {
          let state3 = false;
          let state4 = false;
     // const [state,setState]= useState('');
-    if (state==="http://localhost:3000/display") {
+    if (state==="https://nuthanrealestate.onrender.com/display") {
         state1 = true;
         state2 = false;
         state3 = false;
        state4 = false;
-      } else if  (state==="http://localhost:3000/display2") {
+      } else if  (state==="https://nuthanrealestate.onrender.com/display2") {
         state1 = false;
         state2 = true;
         state3 = false;
        state4 = false;
-      } else if  (state==="http://localhost:3000/display3") {
+      } else if  (state==="https://nuthanrealestate.onrender.com/display3") {
         state1 = false;
         state2 = false;
         state3 = true;
        state4 = false;
-      } else if(state==="http://localhost:3000/display4"){
+      } else if(state==="https://nuthanrealestate.onrender.com/display4"){
         state1 = false;
          state2 = false;
          state3 = false;
