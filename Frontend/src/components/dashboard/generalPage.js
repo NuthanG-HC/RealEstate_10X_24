@@ -5,17 +5,16 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom"
 import { useState } from "react";
 const GeneralInfo = (props) => {
-    // const [contact, setcontact] = useState("")
-    // const handleClick = () => {
-    //     props.onData({ contact: contact, colorUrl: blueColorUrl });
-
-    // };
-    // let blueColorUrl = window.location.href
-    // useEffect(() => {
-    //     // console.log( blueColorUrl);
-    // }, [blueColorUrl]);
+    const [contact, setcontact] = useState("")
+    const handleClick = () => {
+        props.onData({ contact: contact,colorUrl:blueColorUrl });
+      
+    };
+    let blueColorUrl = window.location.href
+    useEffect(() => {
+        // console.log( blueColorUrl);
+      },[blueColorUrl]);
     return (
-
         <>
             <form className="formContainer" id="formContainerForGeneralInfo">
 
@@ -55,7 +54,7 @@ const GeneralInfo = (props) => {
 
                     <section className="inputSection"> <label className="WideLabel" htmlFor="Mobile">Mobile</label>
                         <input className="WideInput" type="number" id="Mobile" name="Mobile"
-                            placeholder="Enter Mobile no."/></section>
+                            placeholder="Enter Mobile no." onChange={(e)=>{setcontact(e.target.value)}} value={contact}/></section>
 
                     <section className="inputSection"> <label className="WideLabel" htmlFor="SaleType">SaleType</label>
                         <select className="WideInput" type="text" id="SaleType" name="SaleType"
@@ -78,10 +77,8 @@ const GeneralInfo = (props) => {
             </form>
             <section className="image"> <span className="vector"></span> </section>
             <section className="buttons" id="buttonsForGeneralInfo">
-                <Link to='/display2'>    <button className="button1" >Previous</button></Link>
-                <Link to='/display3'> <button className="button2"  >Save & Continue</button></Link>
-                {/* <button className="button1">Previous</button>
-                <button className="button2">Save & Continue</button> */}
+                <Link to='/display2'>    <button className="button1"  onClick={handleClick} >Previous</button></Link>
+                <Link to='/display4'> <button className="button2"  onClick={handleClick}  >Save & Continue</button></Link>
             </section>
         </>
     )

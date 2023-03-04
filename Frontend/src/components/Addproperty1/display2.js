@@ -1,24 +1,14 @@
 import React, { useEffect } from 'react';
-import { json } from 'react-router-dom';
-
 import "./display.css"
 import Sidebar from '../dashboard/sidebar';
 import Navbar from '../dashboard/navbar';
-import { useNavigate } from 'react-router-dom';
 import ProgressBar from '../dashboard/progressBar';
-import BasicInfo from '../dashboard/basicPage';
-import GeneralInfo from '../dashboard/generalPage';
+import PropertyDetails from '../dashboard/propertyPage';
 
-const Display2 = () => {
-    // const navigate = useNavigate()
-    // const token = localStorage.getItem("token")
-
-    // useEffect(() => {
-    //     if (!token) {
-    //         navigate("/login")
-    //     }
-    //     console.log(token)
-    // }, [])
+const Display2 = (props) => {
+    const handleChildData1 = (data)=>{
+        props.onData1({ area: data.area });
+    }
     return (
         <div className="home">
             <div className="side-nav">
@@ -28,7 +18,7 @@ const Display2 = () => {
                 <Navbar />
                 <div className='dashboard'>
                 <ProgressBar/>
-                <GeneralInfo/>
+                <PropertyDetails onData1={handleChildData1}/>
                 </div>
             </div>
 

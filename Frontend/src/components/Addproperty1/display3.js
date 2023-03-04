@@ -1,25 +1,15 @@
 import React, { useEffect } from 'react';
-import { json } from 'react-router-dom';
-
 import "./display.css"
 import Sidebar from '../dashboard/sidebar';
 import Navbar from '../dashboard/navbar';
-import { useNavigate } from 'react-router-dom';
 import ProgressBar from '../dashboard/progressBar';
-import BasicInfo from '../dashboard/basicPage';
-import GeneralInfo from '../dashboard/generalPage';
 import LocationInfo from '../dashboard/locationPage';
+import GeneralInfo from '../dashboard/generalPage';
 
-const Display3 = () => {
-    // const navigate = useNavigate()
-    // const token = localStorage.getItem("token")
-
-    // useEffect(() => {
-    //     if (!token) {
-    //         navigate("/login")
-    //     }
-    //     console.log(token)
-    // }, [])
+const Display3 = (props) => {
+    const handleChildData = (data)=>{
+        props.onData({ contact: data.contact });
+    }
     return (
         <div className="home">
             <div className="side-nav">
@@ -29,7 +19,7 @@ const Display3 = () => {
                 <Navbar />
                 <div className='dashboard'>
                 <ProgressBar/>
-                <LocationInfo/>
+                <GeneralInfo onData={handleChildData}/>
                 </div>
             </div>
 

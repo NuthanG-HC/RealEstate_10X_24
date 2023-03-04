@@ -42,9 +42,9 @@
 
 .WideInput {
 
-    width: 200%;
+    width: 190%;
     margin: 2%;
-    height: 120%;
+    height: 100%;
     padding-left: 2%;
     border: 1px solid #C3C3C3;
     border-radius: 8px;
@@ -59,21 +59,34 @@
 }
 
 .WideLabel {
+    position:absolute;
     font-family: 'Source Sans Pro';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
     line-height: 25px;
     color: #7D7D7D;
     /* color: #7D7D7D; */
     background-color: inherit;
+    margin: auto;
+    margin-left: 5px;
+    margin-top: -23px;
 }
+
 
 .inputSection {
     background-color: inherit;
-
+  
     display: grid;
     gap: 5%;
+    margin-top: 8%;
+}
+.inputSection1 {
+    background-color: inherit;
+  
+    display: grid;
+    gap: 5%;
+    margin-top: 2%;
 }
 
 .buttons {

@@ -7,6 +7,8 @@ const propertyPage = mongoose.Schema({
    area:{type: String ,required:true},
    views:{type: String ,required:true},
    daysLeft:{type: String ,required:true},
+   status:{type: String ,required:true},
+   PPID:{type: String ,required:true}
 })
 
 

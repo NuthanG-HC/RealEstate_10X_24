@@ -11,7 +11,9 @@ const Register = () => {
     e.preventDefault()
     if (data.password != data.confirm_password) {
       setErr('Password mismatch')
+      navigate('/register')
     }
+    else{
     fetch(`http://localhost:7001/register`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
@@ -32,6 +34,7 @@ const Register = () => {
         setErr("User already exists with the given email. Try log in");
         console.log(err);
       });
+    }
   }
   return (
     <div className='box'>

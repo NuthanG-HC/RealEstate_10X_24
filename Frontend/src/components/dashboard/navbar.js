@@ -4,17 +4,16 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
-    // const navigate = useNavigate()
-    // const [log, setLogout] = useState(false)
-    // const handleLog = () => {
-    //     console.log(localStorage.getItem("user"))
-    //     localStorage.removeItem("token");
-    //     localStorage.removeItem("user");
-    //     navigate("/login")
-    // }
-    // let user = localStorage.getItem("user")
-    // user = (JSON.parse(user).email)
-    // console.log(user)
+    const navigate = useNavigate()
+    const [log, setLogout] = useState(false)
+    const handleLog = () => {
+        console.log(localStorage.getItem("user"))
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate("/")
+    }
+    let user = localStorage.getItem("user")
+    user = (JSON.parse(user).MailID)
     return (
 
 
@@ -25,12 +24,12 @@ const Navbar = () => {
             <p className='account'>
                 <span>
                     <span className='account-icon'><BsPerson /></span>
-                    <span className='account-name'>xyx</span>
+                    <span className='account-name'>{user}</span>
                     <span><BsChevronDown
-                       
+                       onClick={() => { log ? setLogout(false) : setLogout(true) }}
                     /></span>
                 </span>
-                {/* {<p className='logout-option'  >Logout</p>} */}
+                {log && <p className='logout-option' onClick={() => { setLogout(false); handleLog() }} >Logout</p>}
             </p>
         </div>
 

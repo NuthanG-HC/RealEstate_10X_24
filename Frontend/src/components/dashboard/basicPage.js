@@ -5,15 +5,14 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom"
 import "./BasicInfo.css"
 const BasicInfo = (props) => {
-    // const [property, setProperty] = useState("")
-    // const handleClick = () => {
-    //     props.onData2({ property: property, colorUrl: blueColorUrl });
-
-    // };
-    // let blueColorUrl = window.location.href
-    // useEffect(() => {
-    //     // console.log( blueColorUrl);
-    // }, [blueColorUrl]);
+    const [property, setProperty] = useState("")
+    const handleClick = () => {
+        props.onData2({ property: property ,colorUrl:blueColorUrl});
+    };
+    let blueColorUrl = window.location.href
+    useEffect(() => {
+        // console.log( blueColorUrl);
+      },[blueColorUrl]);
 
     return (
 
@@ -24,7 +23,7 @@ const BasicInfo = (props) => {
                     <section className="inputSection">
                         <label className="WideLabel" htmlFor="PropertyType">Property Type</label>
                         <select className="WideInput" type="text" id="PropertyType" name="PropertyType"
-                            placeholder="Select Property Type"  >
+                            placeholder="Select Property Type" onChange={(e)=>{setProperty(e.target.value)}} value={property} >
                             <option value="option1" className="WideInput" >Select Property Type</option>
                             <option value="Plot">Plot</option>
                             <option value="flat">Flat</option>
@@ -82,7 +81,7 @@ const BasicInfo = (props) => {
 
             <section className="buttons">
                 <Link to="/"> <button className="button1" >Cancel</button></Link> 
-                <Link to='/display2'><button className="button2"  >Save & Continue</button></Link> 
+                <Link to='/display2'><button className="button2"  onClick={handleClick}  >Save & Continue</button></Link> 
             </section>
         </>
     )

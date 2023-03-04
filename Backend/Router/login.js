@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
         const email= req.body.id
         const passwords = req.body.password
         const findQueryinDB = await User.findOne({ MailID: email });
-        console.log(req.body)
+        console.log(findQueryinDB)
 
         if (!findQueryinDB) {
             return res.status(404).json({

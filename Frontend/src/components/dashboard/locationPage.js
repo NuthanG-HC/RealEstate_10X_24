@@ -1,44 +1,47 @@
 import React from "react";
 import "./BasicInfo.css"
 import { useEffect } from "react";
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 
 const LocationInfo = (props) => {
-    // let blueColorUrl = window.location.href
-    // useEffect(() => {
-    //     // console.log( blueColorUrl);
-    // }, [blueColorUrl]);
-    // let Views = Math.floor(Math.random() * 100);
-    // let Daysleft = "6"
-    // let sold = "Sold"
-    // const uploadPost = (e) => {
-        // e.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append("property", props.property);
-    //     formData.append("contact", props.contact);
-    //     formData.append("area", props.area);
-    //     formData.append("views", Views);
-    //     formData.append("daysleft", Daysleft)
-    //     formData.append("status", sold)
+    const navigate = useNavigate()
+    let status = ['Sold','Unsold','Unsold','Sold']
+    let blueColorUrl = window.location.href
+    useEffect(() => {
+       
+      },[blueColorUrl]);
+    let PPID = 'PPD' + Math.floor(Math.random()*999 + 999)
+    let Views = Math.floor(Math.random()*100);
+    let Daysleft = parseInt(Math.random() * 90 + 10)
+    let sold = status[Math.floor(Math.random()*status.length)];
+    const uploadPost = (e) => {
 
-    //     for (const [key, value] of formData.entries()) {
-    //         console.log(key, value);
-    //     }
-    //     console.log(props.property);
-    //     fetch("https://realestatecatalog.onrender.com/api/property",
-    //         {
-    //             method: 'POST',
-    //             body: formData
+        const formData = new FormData();
+        formData.append("property", props.property);
+        formData.append("contact", props.contact);
+        formData.append("area", props.area);
+        formData.append("views", Views);
+        formData.append("daysleft",Daysleft)
+        formData.append("status",sold)
+        formData.append('PPID',PPID)
 
-    //         }).then(res => res.json()).then(data => {
-    //             console.log("success", data);
-    //         }).catch(err => {
-    //             console.log("error", err);
-    //         });
+        for (const [key, value] of formData.entries()) {
+            console.log(key, value);
+          }
+            console.log(props.property);
+        fetch("http://localhost:7001/pagelist",
+            {
+                method: 'POST',
+                body: formData
+            
+            }).then(res=>res.json()).then(data=>{
+                navigate('/home')
+            }).catch(err=>{
+                console.log("error",err);
+            });
 
 
-    // }
-    // console.log(props);
+    }
 
     return (
 
@@ -46,53 +49,53 @@ const LocationInfo = (props) => {
             <form className="formContainer" id="formContainerForLocationInfo">
 
                 <section className="column">
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="Price">Price</label>
-                        <input className="WideInput" type="text" id="Price" name="Price"
-                            placeholder="Example: 10000" /></section>
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="Email">Email</label>
+                        <input className="WideInput" type="text" id="Email" name="Email"
+                            placeholder="Email" /></section>
 
                     <section className="inputSection">
-                        <label className="WideLabel" htmlFor="PropertyType">Property Type</label>
-                        <select className="WideInput" type="text" id="PropertyType" name="PropertyType"
-                            placeholder="Select Property Type" >
-                            <option value="option1" className="WideInput" >Select Property Type</option>
+                        <label className="WideLabel" htmlFor="City">City</label>
+                        <select className="WideInput" type="text" id="City" name="PropertyType"
+                            placeholder="Select City" >
+                            <option value="option1" className="WideInput" >Select City</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                     </section>
 
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="PropertyAge">Property Age</label>
-                        <input className="WideInput" type="text" id="PropertyAge" name="PropertyAge"
-                            placeholder="Select Property Age" /></section>
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="Area">Area</label>
+                        <input className="WideInput" type="text" id="Area" name="Area"
+                            placeholder="Select Area" /></section>
 
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="PropertyDescription">Property Description</label>
-                        <input className="WideInput" type="text" id="PropertyDescription" name="PropertyDescription" />
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="PinCode">PinCode</label>
+                        <input className="WideInput" type="text" id="PinCode" name="PinCode" placeholder="PinCode" />
                     </section>
                 </section>
 
                 <section className="column">
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="Negotable">Negotable</label>
-                        <select className="WideInput" type="text" id="Negotable" name="Negotable"
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="Address">Address</label>
+                        <select className="WideInput" type="text" id="Address" name="Address"
                             placeholder="Select Negotable" >
-                            <option value="option1" className="SelectNegotable" >Select Negotable</option>
+                            <option value="option1" className="SelectNegotable" >Address</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                     </section>
-                    <section className="inputSection"><label className="WideLabel" htmlFor="Ownership">Ownership</label>
-                        <select className="WideInput" type="text" id="Ownership" name="Ownership"
-                            placeholder="Ownership" >
-                            <option value="option1" className="Ownership" >Ownership</option>
+                    <section className="inputSection"><label className="WideLabel" htmlFor="Landmark">Landmark</label>
+                        <select className="WideInput" type="text" id="Landmark" name="Landmark"
+                            placeholder="Landmark" >
+                            <option value="option1" className="Ownership" >Select Landmark</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option>
                         </select>
                     </section>
 
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="PropertyDescription">Property Description</label>
-                        <input className="WideInput" type="text" id="PropertyDescription" name="PropertyDescription" />
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="Latitude">Latitude</label>
+                        <input className="WideInput" type="text" id="Latitude" name="Latitude" placeholder="Latitude" />
                     </section>
 
-                    <section className="inputSection"> <label className="WideLabel" htmlFor="PropertyDescription">Property Description</label>
-                        <input className="WideInput" type="text" id="PropertyDescription" name="PropertyDescription" />
+                    <section className="inputSection"> <label className="WideLabel" htmlFor="Longitude"> Longitude</label>
+                        <input className="WideInput" type="text" id="Longitude" name="Longitude" placeholder="Longitude" />
                     </section>
 
 
@@ -103,9 +106,9 @@ const LocationInfo = (props) => {
                 <Link to='/display3'
                     style={{ textDecoration: "none" }}
                 >    <button className="button1">Previous</button></Link>
-                <Link to='/display4'
-                    style={{ textDecoration: "none" }}
-                > <button  className="button2">Add Property</button></Link>
+            
+                
+                <button onClick={uploadPost } className="button2">Add Property</button>
 
 
             </section>

@@ -28,7 +28,7 @@ const Login = () => {
                     JSON.stringify(localStorage.setItem("token", token));
                     JSON.stringify(localStorage.setItem("user", JSON.stringify(result.message.userdetails)));
 
-                    navigate("/display");
+                    navigate("/home");
                 }
             })
             .catch((e) => {
@@ -46,7 +46,6 @@ const Login = () => {
                     <input type='password' placeholder='Password' name='password' value={data.password} onChange={(e) => { setData({ ...data, password: e.target.value }) }} minLength={6} required /><br />
                     <button type='submit' id="btn1">Sign In</button><br />
                 </form>
-                <Link to="/register" >Sign Up</Link>
                 <p style={{ color: "red" }}>{err} </p>
             </div>
             <p id="sub-head1">Don't have an account?<Link to="/register" >Sign Up</Link></p>
