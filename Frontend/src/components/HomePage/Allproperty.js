@@ -12,7 +12,7 @@ const AllpropertyList = () => {
         alldata()
     }, [])
     const alldata = () => {
-        fetch(`http://localhost:7001/pagelist`, {
+        fetch(`https://realestateserver-e5wx.onrender.com/pagelist`, {
             method: 'GET'
         }).then((res) => res.json())
             .then((data) => setResult(data.data))
@@ -20,7 +20,7 @@ const AllpropertyList = () => {
     }
 
     const handleSearch = () => {
-        fetch(`http://localhost:7001/pagelist/${arr}`, {
+        fetch(`https://realestateserver-e5wx.onrender.com/pagelist/${arr}`, {
             method: 'GET'
         }).then((res) => res.json())
             .then((data) => setResult(data.data))
