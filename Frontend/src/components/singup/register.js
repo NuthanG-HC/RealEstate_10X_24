@@ -14,7 +14,7 @@ const Register = () => {
       navigate('/register')
     }
     else{
-    fetch(`http://localhost:7001/register`, {
+    fetch(`https://chandan1.onrender.com/register`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
