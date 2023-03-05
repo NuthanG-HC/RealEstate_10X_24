@@ -16,7 +16,7 @@ const Login = () => {
     },[])
     function loginFunc(e) {
         e.preventDefault()
-        fetch(`http://localhost:7001/login`, {
+        fetch(`https://chandan1.onrender.com/login`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
