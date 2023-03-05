@@ -29,7 +29,7 @@ const LocationInfo = (props) => {
             console.log(key, value);
           }
             console.log(props.property);
-        fetch("http://localhost:7001/pagelist",
+        fetch("https://chandan1.onrender.com/pagelist",
             {
                 method: 'POST',
                 body: formData
