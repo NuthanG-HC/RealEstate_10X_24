@@ -14,7 +14,7 @@ const Register = () => {
       navigate('/register')
     }
     else{
-    fetch(`https://chandan1.onrender.com/register`, {
+    fetch(`https://realestateserver-e5wx.onrender.com/register`, {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
